@@ -18,7 +18,7 @@ namespace HowManyDigits
             if (n > 254) //For large numbers Stirling's approximation is used.
             {
                 double x = n + 1;
-                return (x - 0.5) * Math.Log(x) - x + 0.5 * Math.Log(2 * Math.PI) + 1.0 / (12.0 * x); 
+                return (x - 0.5) * Math.Log(x) - x + 0.5 * Math.Log(2 * Math.PI) + 1.0 / (12.0 * x);
             }
             else //For smaller numbers a lookup table gives faster and more accurate results.
             {
