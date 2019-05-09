@@ -9,16 +9,16 @@ namespace HowManyDigits
             string input;
             while ((input = Console.ReadLine()) != null)
             {
-                Console.WriteLine((int)(LogFactorial(int.Parse(input)) / 2.30258509299) + 1); //Division is performed to accout for Stirling's approximation using the natural log.
+                Console.WriteLine((int)(LogFactorial(int.Parse(input)) / 2.30258509299 /*this is ln10*/) + 1); //Division is performed to account for Stirling's approximation using the natural log.
             }
         }
 
         static double LogFactorial(int n)
         {
-            if (n > 254)
+            if (n > 254) //For large numbers Stirling's approximation is used.
             {
                 double x = n + 1;
-                return (x - 0.5) * Math.Log(x) - x + 0.5 * Math.Log(2 * Math.PI) + 1.0 / (12.0 * x); //For large numbers Stirling's approximation is used.
+                return (x - 0.5) * Math.Log(x) - x + 0.5 * Math.Log(2 * Math.PI) + 1.0 / (12.0 * x); 
             }
             else //For smaller numbers a lookup table gives faster and more accurate results.
             {
